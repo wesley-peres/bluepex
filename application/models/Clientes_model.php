@@ -15,6 +15,13 @@ class Clientes_model extends CI_Model {
         $this->db->insert('clientes', $data);
     }
 
+    public function get_by_id($id_cliente)
+    {
+        $query = $this->db->where('id', $id_cliente)->get('clientes');
+
+        return $query->row();
+    }
+
     public function delete($id_cliente)
     {
         $this->db->where('id', $id_cliente);

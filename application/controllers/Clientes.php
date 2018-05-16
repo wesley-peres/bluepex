@@ -37,9 +37,9 @@ class Clientes extends CI_Controller {
 
 	public function alterar($id_cliente)
 	{
-		$data['id_cliente'] = $id_cliente;
-
-		$this->load->view('clientes/form', $data);
+		$cliente = $this->clientes_model->get_by_id($id_cliente);
+		
+		$this->load->view('clientes/form', $cliente);
 	}
 
 	public function atualizar($id_cliente)

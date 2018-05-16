@@ -51,7 +51,7 @@
             <td><?=$cliente->nome;?></td>
             <td><?=$cliente->endereco;?></td>
             <td><?=$cliente->telefone;?></td>
-            <td><a href="#">Alterar</a> <a href="<?=base_url('clientes/excluir/'.$cliente->id);?>">Excluir</a></td>
+            <td><a href="<?= base_url("clientes/alterar/$cliente->id");?>">Alterar</a> <a href="<?=base_url("clientes/excluir/$cliente->id");?>">Excluir</a></td>
           </tr>
           <?php } ?>                 
         </tbody>

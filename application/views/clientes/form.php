@@ -32,16 +32,17 @@
 
       <form class="mt-5" method="post" action="<?=isset($id_cliente) ? base_url('clientes/alterar/{$id_cliente}') : base_url('clientes/inserir'); ?>">
         <div class="form-group">
-          <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+          <input type="text" class="form-control" name="nome" placeholder="Nome" value="<?=isset($cliente['nome']) ? $cliente['nome'] : "";?>" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="endereco" placeholder="Endereço" required>
+          <input type="text" class="form-control" name="endereco" placeholder="Endereço" value="<?=isset($cliente['endereco']) ? $cliente['endereco'] : "";?>" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="telefone" placeholder="Telefone" required>
+          <input type="text" class="form-control" name="telefone" placeholder="Telefone" value="<?=isset($cliente['telefone']) ? $cliente['telefone'] : "";?>" required>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-success" name="btn-enviar">Enviar</button>
+          <button type="submit" class="btn btn-success" name="btn-enviar">Salvar</button>
+          <input type="hidden" name="id_cliente" value="<?=$cliente['id'];?>">
         </div>
       </form>      
 
