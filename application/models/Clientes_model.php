@@ -3,12 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Clientes_model extends CI_Model {
 
-	public function getAll($sort = 'id', $order = 'asc', $limit = null, $offset = null)
+	public function getAll($sort = 'id', $order = 'asc', $limit = null, $offset = null, $search = null)
     {        
+        
         $this->db->order_by($sort, $order);
         
-        if($limit)
+        if ($limit)
             $this->db->limit($limit, $offset);
+
+        if ($search)
+            $this->db->like($search);
         
         $query = $this->db->get('clientes');
         

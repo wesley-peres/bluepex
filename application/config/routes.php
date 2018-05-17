@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['clientes/page'] = "Clientes";
 $route['clientes/page/(:num)'] = "Clientes";
+
+$route['clientes/search'] = "Clientes";
+$route['clientes/search/(:any)'] = "Clientes";

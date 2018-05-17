@@ -12,6 +12,15 @@ class Clientes extends CI_Controller {
 
 	public function index()
 	{
+		
+		$search = array();
+
+		if(!empty($this->input->post('pesquisa')) && !empty($this->input->post('filtro'))) {
+			$search = [
+				$this->input->post('filtro') => $this->input->post('pesquisa')
+			];	
+		}
+
 		$config = array(
 			"base_url" => base_url('clientes/page'),
 			"per_page" => 10,
@@ -44,7 +53,7 @@ class Clientes extends CI_Controller {
 		
 		$offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		
-		$data['clientes'] = $this->clientes_model->getAll('nome', 'asc', $config['per_page'], $offset);
+		$data['clientes'] = $this->clientes_model->getAll('nome', 'asc', $config['per_page'], $offset, $search);
 
 		$data['msg'] = $this->session->flashdata('msg');
 

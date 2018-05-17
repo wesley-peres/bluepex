@@ -25,8 +25,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('clientes');?>">Clientes</a>
+              <a class="nav-link" href="<?= base_url('clientes');?>"><i class="fas fa-users"></i> Clientes</a>
             </li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -40,6 +41,19 @@
       <?php } ?>
 
       <a class="btn btn-primary mb-4" href="<?= base_url('clientes/cadastrar');?>">Cadastrar Cliente</a>
+      
+      <form class="form-inline mb-4" method="post" action="<?=base_url('clientes/search/');?>">
+        <input type="text" class="form-control w-50" name="pesquisa" placeholder="Pesquisar">                    
+        <select class="form-control w-25" name="filtro">
+          <option value="">Filtro</option>
+          <option value="id">Código</option>
+          <option value="nome">Nome</option>
+          <option value="endereco">Endereço</option>
+          <option value="telefone">Telefone</option>
+          <option value="email">E-mail</option>
+        </select>
+        <button type="submit" class="btn btn-primary w-25">Pesquisar</button>          
+      </form>      
 
       <?php if (count($clientes) > 0) : ?>
 
