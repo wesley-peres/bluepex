@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Maio-2018 às 23:29
--- Versão do servidor: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: 17-Maio-2018 às 06:42
+-- Versão do servidor: 10.1.30-MariaDB
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `bluepex`
 --
+CREATE DATABASE IF NOT EXISTS `bluepex` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bluepex`;
 
 -- --------------------------------------------------------
 
@@ -33,15 +35,9 @@ CREATE TABLE `clientes` (
   `nome` varchar(255) NOT NULL,
   `endereco` varchar(255) NOT NULL,
   `telefone` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `clientes`
---
-
-INSERT INTO `clientes` (`id`, `nome`, `endereco`, `telefone`, `data_cadastro`) VALUES
-(6, 'Teste1', 'Teste2', '(19) 98877-6655', '2018-05-16 21:19:16');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +57,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

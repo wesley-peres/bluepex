@@ -3,11 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Clientes_model extends CI_Model {
 
-	public function get_all()
-    {
-        $query = $this->db->get('clientes', 10);
+	public function getAll($sort = 'id', $order = 'asc', $limit = null, $offset = null)
+    {        
+        $this->db->order_by($sort, $order);
+        
+        if($limit)
+            $this->db->limit($limit, $offset);
+        
+        $query = $this->db->get('clientes');
+        
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
+    }
 
-        return $query->result();
+    public function countAll()
+    {
+        return $this->db->count_all('clientes');
     }
 
     public function insert($data)
@@ -15,11 +29,17 @@ class Clientes_model extends CI_Model {
         $this->db->insert('clientes', $data);
     }
 
-    public function get_by_id($id_cliente)
+    public function getById($id_cliente)
     {
         $query = $this->db->where('id', $id_cliente)->get('clientes');
 
         return $query->row();
+    }
+
+    public function update($id_cliente, $data)
+    {
+        $this->db->where('id', $id_cliente);
+        $this->db->update('clientes', $data);
     }
 
     public function delete($id_cliente)
