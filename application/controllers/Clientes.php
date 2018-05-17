@@ -26,7 +26,7 @@ class Clientes extends CI_Controller {
 			"per_page" => 10,
 			"num_links" => 3,
 			"uri_segment" => 3,
-			"total_rows" => $this->clientes_model->countAll(),
+			"total_rows" => $this->clientes_model->countAll($search),
 			"full_tag_open" => "<ul class='pagination'>",
 			"full_tag_close" => "</ul>",
 			"first_link" => FALSE,
@@ -57,7 +57,9 @@ class Clientes extends CI_Controller {
 
 		$data['msg'] = $this->session->flashdata('msg');
 
-		$this->load->view('clientes/list', $data);
+		$data['page'] = $this->load->view('clientes/list', $data, TRUE);
+
+		$this->load->view('layout', $data);
 	}
 
 	public function cadastrar()

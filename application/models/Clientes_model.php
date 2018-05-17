@@ -23,9 +23,14 @@ class Clientes_model extends CI_Model {
         }
     }
 
-    public function countAll()
+    public function countAll($search)
     {
-        return $this->db->count_all('clientes');
+        if ($search)
+            $this->db->like($search);
+
+        $query = $this->db->get('clientes');
+
+        return count($query->result());
     }
 
     public function insert($data)

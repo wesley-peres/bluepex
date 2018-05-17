@@ -8,7 +8,7 @@
     <input type="text" class="form-control" name="endereco" placeholder="Endereço" value="<?=isset($cliente->endereco) ? $cliente->endereco : "";?>" required <?=$op == "view" ? "readonly" : "";?>>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="telefone" placeholder="Telefone" value="<?=isset($cliente->telefone) ? $cliente->telefone : "";?>" required <?=$op == "view" ? "readonly" : "";?>>
+    <input type="text" class="form-control telefone" name="telefone" placeholder="Telefone" value="<?=isset($cliente->telefone) ? $cliente->telefone : "";?>" required <?=$op == "view" ? "readonly" : "";?>>
   </div>
   <div class="form-group">
     <input type="email" class="form-control" name="email" placeholder="E-mail" value="<?=isset($cliente->email) ? $cliente->email : "";?>" required <?=$op == "view" ? "readonly" : "";?>>
